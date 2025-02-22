@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jugadores Real Madrid</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="atletico.html">Atlético de Madrid</a></li>
+      <li><a href="real.html">Real Madrid</a></li>
+      <li><a href="barca.html">FC Barcelona</a></li>
+    </ul>
+  </nav>
+  <section id="real">
+    <h2>Jugadores del Real Madrid</h2>
+    <div id="real-players"></div>
+  </section>
+
+  <script>
+    // El archivo jugadores.json sigue siendo necesario
+    fetch('jugadores.json')
+      .then(response => response.json())
+      .then(teamsData => {
+        // Renderiza los jugadores del Real Madrid
+        renderPlayers(teamsData.real, 'real-players');
+      })
+      .catch(error => console.error('Error al cargar el archivo JSON:', error));
+
+    const renderPlayers = (team, containerId) => {
+      const container = document.getElementById(containerId);
+      team.forEach(player => {
+        const playerElement = document.createElement('div');
+        playerElement.className = 'player';
+        playerElement.innerHTML = `<strong>${player.name}</strong> - ${player.position}`;
+        container.appendChild(playerElement);
+      });
+    };
+  </script>
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+    nav ul { display: flex; list-style: none; background: #333; padding: 10px; }
+    nav ul li { margin: 0 10px; }
+    nav ul li a { color: white; text-decoration: none; }
+    section { padding: 20px; }
+    .player { background: #f4f4f4; margin: 10px 0; padding: 10px; border-radius: 8px; }
+  </style>
+</body>
+</html>
