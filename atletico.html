@@ -3,42 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jugadores de Fútbol - LaLiga</title>
+  <title>Jugadores Atlético de Madrid</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav>
     <ul>
-      <li><a href="atletico.html">Atlético de Madrid.</a></li>
-      <li><a href="realmadrid.html">Real Madrid</a></li>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="atletico.html">Atlético de Madrid</a></li>
+      <li><a href="real.html">Real Madrid</a></li>
       <li><a href="barca.html">FC Barcelona</a></li>
     </ul>
   </nav>
-  
-
-  
   <section id="atletico">
-    <h2>Atlético de Madrid</h2>
+    <h2>Jugadores del Atlético de Madrid</h2>
     <div id="atletico-players"></div>
-  </section>
-  <section id="real">
-    <h2>Real Madrid</h2>
-    <div id="real-players"></div>
-  </section>
-  <section id="barca">
-    <h2>FC Barcelona</h2>
-    <div id="barca-players"></div>
   </section>
 
   <script>
-    // Función para cargar el archivo JSON
+    // El archivo jugadores.json sigue siendo necesario
     fetch('jugadores.json')
       .then(response => response.json())
       .then(teamsData => {
-        // Renderiza los jugadores de cada equipo
+        // Renderiza los jugadores del Atlético de Madrid
         renderPlayers(teamsData.atletico, 'atletico-players');
-        renderPlayers(teamsData.real, 'real-players');
-        renderPlayers(teamsData.barca, 'barca-players');
       })
       .catch(error => console.error('Error al cargar el archivo JSON:', error));
 
