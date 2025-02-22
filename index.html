@@ -28,20 +28,16 @@
   </section>
 
   <script>
-    const teamsData = {
-      "atletico": [
-        { "name": "Antoine Griezmann", "position": "Delantero" },
-        { "name": "Jan Oblak", "position": "Portero" }
-      ],
-      "real": [
-        { "name": "Kylian Mbappé", "position": "Delantero" },
-        { "name": "Luka Modric", "position": "Centrocampista" }
-      ],
-      "barca": [
-        { "name": "Robert Lewandowski", "position": "Delantero" },
-        { "name": "Pedri", "position": "Centrocampista" }
-      ]
-    };
+    // Función para cargar el archivo JSON
+    fetch('jugadores.json')
+      .then(response => response.json())
+      .then(teamsData => {
+        // Renderiza los jugadores de cada equipo
+        renderPlayers(teamsData.atletico, 'atletico-players');
+        renderPlayers(teamsData.real, 'real-players');
+        renderPlayers(teamsData.barca, 'barca-players');
+      })
+      .catch(error => console.error('Error al cargar el archivo JSON:', error));
 
     const renderPlayers = (team, containerId) => {
       const container = document.getElementById(containerId);
@@ -52,10 +48,6 @@
         container.appendChild(playerElement);
       });
     };
-
-    renderPlayers(teamsData.atletico, 'atletico-players');
-    renderPlayers(teamsData.real, 'real-players');
-    renderPlayers(teamsData.barca, 'barca-players');
   </script>
 
   <style>

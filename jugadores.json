@@ -1,0 +1,15 @@
+{
+    "atletico": [
+      { "name": "Antoine Griezmann", "position": "Delantero" },
+      { "name": "Jan Oblak", "position": "Portero" }
+    ],
+    "real": [
+      { "name": "Kylian Mbappé", "position": "Delantero" },
+      { "name": "Luka Modric", "position": "Centrocampista" }
+    ],
+    "barca": [
+      { "name": "Robert Lewandowski", "position": "Delantero" },
+      { "name": "Pedri", "position": "Centrocampista" }
+    ]
+  }
+  
